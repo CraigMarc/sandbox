@@ -2,7 +2,7 @@
 
 
 //get dates for the week
-
+function getWeek() {
 let curr = new Date 
 let week = []
 
@@ -11,19 +11,28 @@ for (let i = 0; i <= 6; i++) {
   let day = new Date(curr.setDate(first)).toISOString().slice(0, 10)
   week.push(day)
 }
-
-console.log(week)
-/*
-function dates(current) {
-    var week= new Array(); 
-    // Starting Monday not Sunday
-    current.setDate((current.getDate() - current.getDay() +1));
-    for (var i = 0; i < 7; i++) {
-        week.push(
-            new Date(current)
-        ); 
-        current.setDate(current.getDate() +1);
-    }
-    return week; 
+return week 
 }
-console.log(dates(new Date));*/
+console.log(getWeek())
+
+
+//get days of the month
+
+function getDaysInMonth() {
+    const d = new Date();
+  let month = d.getMonth()
+  let year = d.getFullYear()
+
+    let date = new Date(year, month, 1);
+    let days = [];
+    while (date.getMonth() === month) {
+      days.push(new Date(date).toISOString().slice(0, 10));
+      date.setDate(date.getDate() + 1);
+    }
+    return days;
+  }
+
+
+
+  console.log(getDaysInMonth())
+ 
